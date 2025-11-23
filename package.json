@@ -1,5 +1,5 @@
 {
-  "name": "sleeper",
+  "name": "mac-to-sleep",
   "version": "1.0.0",
   "description": "A simple CLI tool to schedule Mac sleep after a specified duration",
   "main": "sleep.js",
@@ -7,7 +7,10 @@
     "sleep": "./sleep.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "echo 'Publishing sleeper CLI...'",
+    "version": "git add -A",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "sleep",
@@ -28,6 +31,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/dragonworx/sleeper"
   }
 }
