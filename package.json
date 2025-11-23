@@ -1,0 +1,33 @@
+{
+  "name": "sleeper",
+  "version": "1.0.0",
+  "description": "A simple CLI tool to schedule Mac sleep after a specified duration",
+  "main": "sleep.js",
+  "bin": {
+    "sleep": "./sleep.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sleep",
+    "mac",
+    "macos",
+    "timer",
+    "cli",
+    "shutdown",
+    "power"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "os": [
+    "darwin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
