@@ -14,24 +14,30 @@ if (!duration) {
 
 const parsedDuration = parseFloat(duration);
 
-if (isNaN(parsedDuration) || parsedDuration <= 0) {
-  console.error('Error: Duration must be a positive number');
+if (isNaN(parsedDuration) || parsedDuration < 0) {
+  console.error('Error: Duration must be a positive number or zero');
   process.exit(1);
 }
-
-// Check if it's a whole number or has a decimal point
-const isWholeNumber = parsedDuration === Math.floor(parsedDuration);
-const isMinutes = isWholeNumber;
 
 let milliseconds;
 let durationDescription;
 
-if (isMinutes) {
-  milliseconds = parsedDuration * 60 * 1000;
-  durationDescription = `${parsedDuration} minute${parsedDuration === 1 ? '' : 's'}`;
+// Special case: if 0 is passed, sleep in 3 seconds
+if (parsedDuration === 0) {
+  milliseconds = 3000;
+  durationDescription = '3 seconds';
 } else {
-  milliseconds = parsedDuration * 60 * 60 * 1000;
-  durationDescription = `${parsedDuration} hour${parsedDuration === 1 ? '' : 's'}`;
+  // Check if it's a whole number or has a decimal point
+  const isWholeNumber = parsedDuration === Math.floor(parsedDuration);
+  const isMinutes = isWholeNumber;
+
+  if (isMinutes) {
+    milliseconds = parsedDuration * 60 * 1000;
+    durationDescription = `${parsedDuration} minute${parsedDuration === 1 ? '' : 's'}`;
+  } else {
+    milliseconds = parsedDuration * 60 * 60 * 1000;
+    durationDescription = `${parsedDuration} hour${parsedDuration === 1 ? '' : 's'}`;
+  }
 }
 
 console.log(`Mac will sleep in ${durationDescription}`);
