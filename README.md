@@ -38,6 +38,9 @@ sleep 45
 
 # Sleep in 2 hours
 sleep 2.0
+
+# Sleep now
+sleep 0
 ```
 
 ## Features
